@@ -1,0 +1,34 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  compile-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install GnuCOBOL
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnucobol4 graphviz
+
+      - name: Compile every function in dependency order
+        run: python3 TOOLS/compile_check.py
+
+      - name: Regenerate the call graph
+        run: python3 TOOLS/generate_callgraph.py
+
+      # A "run the test suite" step belongs here once TESTS/ holds its
+      # first data-driven COBOL test runner, per TESTS/README.md. Left
+      # out for now rather than pointing at a script that does not exist yet.

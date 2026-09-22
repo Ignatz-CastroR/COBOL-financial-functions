@@ -1,0 +1,56 @@
+Date: 2026/09/21, 15:21:53, RAINY AFTERNOON.
+
+Version: 1.0
+
+# Compiled COBOL artifacts: never commit build output, only source.
+*.o
+*.obj
+*.exe
+*.int
+*.gnt
+*.lst
+*.dyn
+*.dll
+*.h
+*.c
+a.out
+
+# Local test COBOL source code files.
+*-LOCAL.cbl
+
+# Compiled FORTRAN artifacts: module interface files are compiler- and platform-specific derived output, never hand-written source.
+*.mod
+*.smod
+
+# Python tooling [TOOLS/]; never commit interpreter cache or venvs.
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated logs from local test runs.
+*.log
+
+# OS-generated junk.
+.DS_Store
+Thumbs.db
+Desktop.ini
+._*
+
+# Editor/IDE local settings.
+.vscode/
+.idea/
+*.swp
+
+# Local build output directory.
+bin/
+
+# A project specific folder with test files that act as parameters to test each iteration of the app build.
+PROJECT-PARAMETER-FILES/
+
+# Copyrighted reference books. Must never be committed to a public repository under any circumstance.
+SEFERS/
+
+# Personal working folders: never intended for this public project.
+HISTORICAL/
+INSTRUCTIONS/
